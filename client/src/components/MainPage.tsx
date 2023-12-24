@@ -1,5 +1,6 @@
 import './MainPage.css';
-import {useState} from "react";
+import {useEffect, useState} from "react";
+import axios from "axios";
 
 export function MainPage() {
 
@@ -8,7 +9,21 @@ export function MainPage() {
     const [sourceCurrency, setSourceCurrency] = useState<string>("");
     const [targetCurrency, setTargetCurrency] = useState("");
     const [amountInSourceCurrency, setAmountInSourceCurrency] = useState(0);
-    const [amountInTargetCurrency, setAmountInTargetCurrency] = useState(0 );
+    // const [amountInTargetCurrency, setAmountInTargetCurrency] = useState(0 );
+    // @ts-ignore
+    const [currencyNames, setCurrencyNames] = useState([]);
+
+    useEffect(() => {
+        const getCurrencyNames = async ()=> {
+            try {
+                const response = await axios.get("http://localhost:5000/getAllCurrencies");
+                setCurrencyNames(response.data);
+            } catch (err) {
+                console.log(err);
+            }
+        }
+        getCurrencyNames().then(() => {} );
+    }, []);
 
     const handleSubmit = (e : any) => {
         e.preventDefault();
