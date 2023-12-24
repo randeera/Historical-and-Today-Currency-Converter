@@ -61,7 +61,7 @@ export function MainPage() {
                                    className="block mb-2 text-sm font-medium text-green-500
                                     dark:text-white">Your
                                 email</label>
-                            <input onChange={(e) => setDate(e.target.value)}
+                            <input onChange={(e) => {setDate(e.target.value); setLoading(true)}}
                                    type="Date" id={date} name={date}
                                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500
                                     focus:border-green-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-grey
@@ -75,7 +75,7 @@ export function MainPage() {
                                     dark:text-white">Source Currency</label>
 
                             <select
-                                onChange={(e) => setSourceCurrency(e.target.value)}
+                                onChange={(e) => {setSourceCurrency(e.target.value); setLoading(true)}}
                                 id={sourceCurrency} name={sourceCurrency} value={sourceCurrency}
                                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500
                                     focus:border-green-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-grey
@@ -95,7 +95,7 @@ export function MainPage() {
                                    className="block mb-2 text-sm font-medium text-green-500
                                     dark:text-white">Target Currency</label>
                             <select
-                                onChange={(e) => setTargetCurrency(e.target.value)}
+                                onChange={(e) => {setTargetCurrency(e.target.value); setLoading(true)}}
                                 id={targetCurrency} name={targetCurrency} value={targetCurrency}
                                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500
                                     focus:border-green-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-grey
@@ -114,7 +114,7 @@ export function MainPage() {
                             <label htmlFor={"amountInSourceCurrency"}
                                    className="block mb-2 text-sm font-medium text-green-500
                                     dark:text-white">Amount in Source Currency</label>
-                            <input onChange={(e) => setAmountInSourceCurrency(e.target.value)}
+                            <input onChange={(e) => {setAmountInSourceCurrency(e.target.value); setLoading(true)}}
                                    type="text" id={"amountInSourceCurrency"} name={"amountInSourceCurrency"}
                                    value={amountInSourceCurrency}
                                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500
@@ -125,7 +125,7 @@ export function MainPage() {
                         </div>
                         <button type="submit"
                                 className="text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">
-                            Get the target currency
+                            Get the Amount of target currency
                         </button>
                     </form>
                 </section>
